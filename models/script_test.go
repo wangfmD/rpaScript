@@ -2,6 +2,7 @@ package models
 
 import (
 	"testing"
+	//"log"
 	"log"
 )
 
@@ -34,12 +35,17 @@ func TestScript_Update(t *testing.T) {
 }
 
 func TestScript_Get(t *testing.T) {
-	s := new(Script)
-	s.Id="fe9cfee0-d800-4864-93e0-9b72ca5d15a8"
-	if ok,err:=s.Get(); ok{
-		log.Println("get")
-		log.Println(s)
-	}else {
-		log.Println(err)
-	}
+	//s := new(Script)
+	//s.Id="fe9cfee0-d800-4864-93e0-9b72ca5d15a8"
+	//if ok,err:=s.Get(); ok{
+	//	log.Println("get")
+	//	log.Println(s)
+	//}else {
+	//	log.Println(err)
+	//}
+}
+
+func TestGetScripts(t *testing.T) {
+	r:=GetScripts("22")
+	log.Println(r)
 }

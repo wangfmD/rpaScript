@@ -5,7 +5,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/core"
 	"github.com/go-xorm/xorm"
-	"github.com/wangfmD/rpaSCript/setting"
+	"github.com/wangfmD/rpaScript/setting"
 	"time"
 )
 

@@ -10,9 +10,9 @@ import (
 
 func main() {
 	models.Init(false)
-
 	r := gin.Default()
 	r.POST("/script/add", controller.AddScript)
 	r.POST("/script/update", controller.UpdateScript)
+	r.POST("/script/greport", controller.GetReport)
 	r.Run(":8002")
 }

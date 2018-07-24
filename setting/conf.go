@@ -16,7 +16,7 @@ var (
 	Port       string // app
 )
 
-var GlobalConfPath = "E:\\gopath\\src\\github.com\\wangfmD\\rpaScript\\conf\\app.ini"
+var GlobalConfPath = "/opt/gopath/src/github.com/wangfmD/rpaScript/conf/app.ini"
 
 // 从配置文件中初始化，数据库的连接信息
 func InitOrmSettings() {
