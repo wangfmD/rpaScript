@@ -1,0 +1,184 @@
+{{define "content"}}
+<div class="container">
+    <h4>服务器信息管理</h4>
+    <HR SIZE=5>
+    <div class="full-right" style="margin-top:48px">
+        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#addServiceInfoModal">添加</button>
+        <button type="button" class="btn btn-primary"  id="updateBtn">修改</button>
+        <button type="button" class="btn btn-primary" onclick="delServiceInfoModal()">删除</button>
+    </div>
+
+</div>
+<div class="container">
+</div>
+
+<!-- 添加 Modal -->
+<div class="modal fade" id="addServiceInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">服务器信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="containe " id="tagsform">
+                    <!-- style="margin-top:20px; margin-left:390px" -->
+                    <form class="form-horizontal" id="addServiceInfoForm">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">主机地址:</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="host" value="" placeholder="主机地址"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">登录用户:</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="loginName" id="loginName" value="" placeholder="登录用户"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">登录密码:</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="password" id="password" value="" placeholder="登录密码"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">主机类型:</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="hostType" id="hostType" value="" placeholder="platform/media"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">是否可选:</label>
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="isSelect" id="isSelect"> 是/否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">备注:</label>
+                            <div class="col-sm-7">
+                                <textarea class="form-control" rows="3" name="comment" id="comment" placeholder="备注" style="height:100px;overflow:auto;"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="addServiceInfo()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="updateServiceInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">服务器信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="containe " id="tagsform">
+                    <!-- style="margin-top:20px; margin-left:390px" -->
+                    <form class="form-horizontal" id="updateServiceInfoForm">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">主机地址:</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="host" id="updateHost" value="" placeholder="主机地址"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">登录用户:</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="loginName" id="updateloginName" value="" placeholder="登录用户"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">登录密码:</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="password" id="updatePassword" value="" placeholder="登录密码"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">主机类型:</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="hostType" id="updateHostType" value="" placeholder="platform/media"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">是否可选:</label>
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="radio" name="isSelect" id="updateIsSelectYes" value="on"> 是
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="isSelect" id="updateIsSelectNo" value="off"> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">备注:</label>
+                            <div class="col-sm-7">
+                                <textarea class="form-control" rows="3" name="comment" id="updateComment" placeholder="备注" style="height:100px;overflow:auto;"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="updateServiceInfo()">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+
+<div class="container" id="listtab">
+    <div class="panel panel-default">
+        <div class="panel-heading">版本信息</div>
+        <table id="tagslist" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>服务器地址</th>
+                <th>登录用户</th>
+                <th>密码</th>
+                <th>类型</th>
+                <th>可选</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+            <tbody>
+                {{range $page := .}}
+                <tr>
+                    <td>{{$page.Id}}</td>
+                    <td>{{$page.Address}}</td>
+                    <td>{{$page.Loginname}}</td>
+                    <td>{{$page.Password}}</td>
+                    <td>{{if eq $page.Type "platform"}}管理平台{{else}}流媒体{{end}}</td>
+                    <td>{{if eq $page.IsSelect "on"}}已选{{else}}未选{{end}}</td>
+                    <td>{{$page.Comment}}</td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
+    <div class="dataTable">
+    </div>
+</div>
+{{end}}
+
+
+{{define "js"}}
+<script type="application/javascript" src="/static/js/servicemgr.js"></script>
+{{end}}

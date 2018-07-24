@@ -1,0 +1,153 @@
+{{define "content"}}
+<div class="container">
+    <h4>发布版本管理</h4>
+    <HR SIZE=5>
+    <div class="full-right" style="margin-top:48px">
+        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#showAddModal">添加版本</button>
+        <button type="button" class="btn btn-primary" onclick="updateTag()" id="updateTag">修改</button>
+        <button type="button" class="btn btn-primary" onclick="deleteTags()">删除</button>
+    </div>
+
+</div>
+<div class="container">
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="showAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">测试环境版本信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="containe " id="tagsform">
+                    <!-- style="margin-top:20px; margin-left:390px" -->
+                    <!--<form class="form-inline">-->
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                大版本号:
+                            </label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="versionid" value=""/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                版本详情:
+                            </label>
+                            <div class="col-sm-7">
+                                <textarea class="form-control" rows="3" name="tags" style="height:500px;"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="addTags()">添加</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="tagsInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">测试环境版本信息</h4>
+            </div>
+            <div class="modal-body">
+                <table id="tagTable" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>模块</th>
+                        <th>版本</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>无</td>
+                        <td></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="updateTagModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Tag版本信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="containe " id="tagsform">
+                    <!-- style="margin-top:20px; margin-left:390px" -->
+                    <form class="form-horizontal" id="updateTagForm">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">是否可选:</label>
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="radio" name="isSelect" id="isSelectYes" value="on"> 是
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="isSelect" id="isSelectNo" value="off"> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="updateTagModal()">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+
+<div class="container" id="listtab">
+    <div class="panel panel-default">
+        <div class="panel-heading">版本信息</div>
+        <table id="tagslist" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>镜像版本</th>
+                <th>是否可选</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan='3' align='center'>请查询！</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="dataTable">
+    </div>
+</div>
+{{end}}
+
+
+{{define "js"}}
+<script type="application/javascript" src="/static/js/tags.js"></script>
+{{end}}

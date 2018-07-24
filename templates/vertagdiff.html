@@ -1,0 +1,65 @@
+{{ define "content" }}
+<div class="container">
+    <h4>管理平台镜像版本查询</h4>
+    <HR SIZE=5>
+
+    <div class="pull-left col-md-3">
+        <!-- <div class="" style="margin-top:-10px"> -->
+        <!-- <button type="button" class="btn btn-primary" onclick="getDiffVersions()">更新发布版本</button> -->
+        <!-- </div> -->
+
+        <span><p>请选择发布版本:</p></span>
+        <select class="form-control input-sm" id="select_tags" name="22">
+            <option value="">请选择</option>
+        </select>
+    </div>
+    <div class="pull-left col-md-3">
+        <span><p>请选择平台:</p></span>
+        <select class="form-control input-sm" id="select_type" name="22">
+            <option value="0">请选择</option>
+            <option value="platform">管理平台</option>
+            <option value="media">流媒体平台</option>
+
+        </select>
+    </div>
+    <div class="pull-left col-md-3">
+        <span><p>请选择测试环境:</p></span>
+        <select class="form-control input-sm" id="select_addr" name="22">
+            <option value="">请选择</option>
+        </select>
+    </div>
+    <div class="full-right" style="margin-top:48px">
+        <button type="button" class="btn btn-primary " onclick="getDiffVersions()">查询全部</button>
+        <button type="button" class="btn btn-primary" onclick="dockerUpdate()" id="upgrade_id">升级</button>
+        <button type="button" class="btn btn-primary" onclick="shhQuery()">SSH查询</button>
+    </div>
+
+</div>
+<div class="container">
+
+</div>
+<!-- <HR > -->
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">版本信息</div>
+        <table id="caselist" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>模块名称</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan='3' align='center'>请查询！</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="dataTable">
+    </div>
+</div>
+{{ end }}
+
+{{ define "js"}}
+<script src="/static/js/vertagdiff.js"></script>
+{{ end}}

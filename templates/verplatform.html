@@ -1,0 +1,40 @@
+{{define "content"}}
+<div class="container">
+    <h4>管理平台镜像版本查询</h4>
+    <HR SIZE=5>
+    <div class="pull-left col-md-3">
+    <button type="button" class="btn btn-primary" onclick="getversions()">查询全部</button>
+</div>
+<div class="pull-right col-md-3">
+    <span><p>查询单个:</p></span>
+    <select class="form-control input-sm" id="select_addr" name="22">
+        <option value="">请选择</option>
+    </select>
+</div>
+</div>
+<!-- <HR > -->
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">版本信息</div>
+        <table id="caselist" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>模块名称</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan='3' align='center'>请查询！</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="dataTable">
+    </div>
+</div>
+{{end}}
+
+
+{{define "js"}}
+<script src="/static/js/verplatform.js"></script>
+{{end}}
